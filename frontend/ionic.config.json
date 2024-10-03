@@ -1,0 +1,7 @@
+{
+  "name": "UT1-AE1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

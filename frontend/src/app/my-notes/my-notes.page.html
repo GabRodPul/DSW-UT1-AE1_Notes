@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title size="large">All notes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">All Notes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let n of notes">
+      <ion-label>
+        <h1>{{n.title}}</h1>
+        <p>{{n.content}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
