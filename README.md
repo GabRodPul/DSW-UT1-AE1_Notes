@@ -62,7 +62,7 @@ You can find documentation about all endpoints [here](https://documenter.getpost
 * [MySQL](https://www.mysql.com/) - Database
 
 ## Authors ✒️
-* **Gabriel Rodríguez Pulido** - [villanuevand](https://github.com/GabRodPul)
+* **Gabriel Rodríguez Pulido** - [GabRodPul](https://github.com/GabRodPul)
 
 ## Special thanks 🎁
 
