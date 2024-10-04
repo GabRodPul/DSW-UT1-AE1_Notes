@@ -9,12 +9,12 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@types/express": "^5.0.0"
-  },
-  "dependencies": {
+    "@types/express": "^5.0.0",
     "@types/cors": "^2.8.17",
     "@types/node": "^22.7.4",
-    "@types/sequelize": "^4.28.20",
+    "@types/sequelize": "^4.28.20"
+  },
+  "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "mysql2": "^3.11.3",
