@@ -21,4 +21,10 @@ export class MyNotesPage implements OnInit {
   getAllNotes() {
     this.noteService.getAllNotes().subscribe(res => { this.notes = res as Note[]; });
   }
+
+  deleteNote(id: number) {
+    this.noteService.delete(id).subscribe(res => {
+      this.getAllNotes();
+    });
+  }
 }

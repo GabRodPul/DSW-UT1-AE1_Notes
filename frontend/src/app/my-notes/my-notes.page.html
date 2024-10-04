@@ -15,6 +15,7 @@
       <ion-label>
         <h1>{{n.title}}</h1>
         <p>{{n.content}}</p>
+        <ion-button (onclick)="deleteNote(n.id)"></ion-button>
       </ion-label>
     </ion-item>
   </ion-list>

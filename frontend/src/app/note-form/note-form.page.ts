@@ -30,10 +30,12 @@ export class NoteFormPage implements OnInit {
     }
 
     console.log(" Valid form:", this.noteForm.value );
-    this.noteService.create({ 
-      title:   this.noteForm.get( "title" )  !.value as string,
-      content: this.noteForm.get( "content" )!.value as string 
-    });
+    this.noteService
+      .create({ 
+        title:   this.noteForm.get( "title" )  !.value as string,
+        content: this.noteForm.get( "content" )!.value as string 
+      })
+      .subscribe(res => this.router.navigateByUrl("/home"));
   }
 
   getFormControl(field: string) {

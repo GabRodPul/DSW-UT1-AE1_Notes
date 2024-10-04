@@ -25,8 +25,6 @@ export class NoteService {
     return this.http.post( this.endpoint, body.toString(), { headers } );
   }
 
-
-
   delete(id: number) {
     return this.http.delete( `${this.endpoint}/${id}` );
   }  
