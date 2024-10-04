@@ -7,16 +7,17 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-col m>
+      <ion-col>
         <!--
           <ion-img
             src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Notas.png"
             alt="An app icon depicting some notes"
           ></ion-img>
         -->
+        <!-- <ion-text></ion-text> -->
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row class="ion-align-items-center">
       <ion-col style="text-align: center;">  <ion-button expand="block" (click)="gotoUrl('/my-notes')">Show all notes</ion-button></ion-col>
       <ion-col style="text-align: center;">  <ion-button expand="block" (click)="gotoUrl('/note-form')">New note</ion-button></ion-col>
     </ion-row>

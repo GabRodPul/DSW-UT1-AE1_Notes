@@ -17,8 +17,8 @@
   <form [formGroup]="noteForm" (ngSubmit)="uploadNote()">
 
     <ion-item>
-      <ion-label position="floating">Title</ion-label>
-      <ion-input formControlName="title" type="text" [value]="note.title"></ion-input>
+      <ion-label color="dark" position="floating">Title</ion-label>
+      <ion-input color="dark" formControlName="title" type="text" [value]="note.title"></ion-input>
     </ion-item>
     <ion-note color="danger" *ngIf="getFormControl('title')?.hasError('required') && getFormControl('title')?.touched">
       A title is required.
@@ -28,8 +28,8 @@
     </ion-note>
 
     <ion-item>
-      <ion-label position="floating">Content</ion-label>
-      <ion-textarea formControlName="content" [value]="note.content"></ion-textarea>
+      <ion-label color="dark" position="floating">Content</ion-label>
+      <ion-textarea color="dark" formControlName="content" [value]="note.content"></ion-textarea>
     </ion-item>
     <ion-note color="danger" *ngIf="getFormControl('content')?.hasError('required') && getFormControl('content')?.touched">
       A title is required.
