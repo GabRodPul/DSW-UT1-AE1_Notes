@@ -1,6 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Note Form</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="!update">Create Note</ion-title>
+    <ion-title *ngIf="update">Edit Note</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,11 +14,11 @@
       <ion-title size="large">Note Form</ion-title>
     </ion-toolbar>
   </ion-header>
-  <form [formGroup]="noteForm" (ngSubmit)="createNote()">
+  <form [formGroup]="noteForm" (ngSubmit)="uploadNote()">
 
     <ion-item>
       <ion-label position="floating">Title</ion-label>
-      <ion-input formControlName="title" type="text"></ion-input>
+      <ion-input formControlName="title" type="text" [value]="note.title"></ion-input>
     </ion-item>
     <ion-note color="danger" *ngIf="getFormControl('title')?.hasError('required') && getFormControl('title')?.touched">
       A title is required.
@@ -25,12 +29,19 @@
 
     <ion-item>
       <ion-label position="floating">Content</ion-label>
-      <ion-textarea formControlName="content"></ion-textarea>
+      <ion-textarea formControlName="content" [value]="note.content"></ion-textarea>
     </ion-item>
     <ion-note color="danger" *ngIf="getFormControl('content')?.hasError('required') && getFormControl('content')?.touched">
       A title is required.
     </ion-note>
   
-    <ion-button expand="full" type="submit" [disabled]="!noteForm.valid">Create</ion-button>
+    <ion-grid>
+      <ion-row>
+        <ion-col style="text-align: center;">
+          <ion-button *ngIf="!update" expand="full" type="submit" [disabled]="!noteForm.valid">Create</ion-button>
+          <ion-button *ngIf="update" expand="full" type="submit" [disabled]="!noteForm.valid">Update</ion-button>      
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 </ion-content>

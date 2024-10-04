@@ -13,6 +13,6 @@ export class HomePage {
   constructor(private router: Router) { }
 
   gotoUrl(url: string) {
-    this.router.navigateByUrl(url);
+    this.router.navigateByUrl(url, { state: { undefined } });
   }
 }

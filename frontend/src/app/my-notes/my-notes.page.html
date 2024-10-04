@@ -1,5 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title size="large">All notes</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,11 +15,32 @@
   </ion-header>
   <ion-list>
     <ion-item *ngFor="let n of notes">
-      <ion-label>
-        <h1>{{n.title}}</h1>
-        <p>{{n.content}}</p>
-        <ion-button (onclick)="deleteNote(n.id)"></ion-button>
+      <ion-label >
+        <ion-grid>
+          <ion-row>
+            <ion-col style="text-align: left;"><h1 style="color:#b32b2b">{{n.title}}</h1></ion-col>
+            <ion-col style="text-align: right;">
+              <ion-button (click)="gotoNoteForm(n)">
+                <ion-icon name="create-outline"></ion-icon>
+              </ion-button>
+              <ion-button (click)="deleteNote(n.id)">
+                <ion-icon name="trash-bin-outline"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <p style="color: #2d2d2d;">{{n.content}}</p>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-label>
     </ion-item>
   </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="gotoNoteForm(undefined)">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

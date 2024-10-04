@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from 'src/app/types/note';
 import { NoteService } from '../services/note.service';
 import { lastValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-notes',
@@ -12,14 +13,25 @@ export class MyNotesPage implements OnInit {
 
   notes: Note[] = [];
 
-  constructor(private noteService: NoteService) { }
+  constructor(
+    private noteService: NoteService,
+    private router:      Router,
+  ) { }
 
   ngOnInit() {
+    // this.getAllNotes();
+  }
+
+  ionViewWillEnter() {
     this.getAllNotes();
   }
 
   getAllNotes() {
-    this.noteService.getAllNotes().subscribe(res => { this.notes = res as Note[]; });
+    this.noteService.getAllNotes().subscribe(res => { this.notes = (res as Note[]).sort( n => n.id ); });
+  }
+
+  gotoNoteForm(note: Note | undefined) {
+    this.router.navigateByUrl("note-form", { state: { note } });
   }
 
   deleteNote(id: number) {

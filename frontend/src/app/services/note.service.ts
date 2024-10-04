@@ -25,6 +25,16 @@ export class NoteService {
     return this.http.post( this.endpoint, body.toString(), { headers } );
   }
 
+  update(note: Note) {
+    const headers = new HttpHeaders({ 'Content-Type' : "application/x-www-form-urlencoded" });
+
+    const body = new HttpParams()
+               .append( "title",   note.title   )
+               .append( "content", note.content );
+
+    return this.http.put( `${this.endpoint}/${note.id}`, body.toString(), { headers } );
+  }
+
   delete(id: number) {
     return this.http.delete( `${this.endpoint}/${id}` );
   }  
